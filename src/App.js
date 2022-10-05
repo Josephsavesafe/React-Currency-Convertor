@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import CurrencyComponent from "./Components/CurrencyComponent";
+import money from "./img/money.png";
+import { useEffect, useState } from "react";
 function App() {
+  const url = `https://api.exchangerate-api.com/v4/latest/USD`;
+  const [chooseCur,setChooseCur] = useState([])
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img src={money} alt="money" className="money-img" />
+      <h1 style={{ color: "chocolate" }}>Currency Converter</h1>
+      <div className="container">
+        <CurrencyComponent />
+        <div className="equal">||</div>
+        <CurrencyComponent />
+      </div>
     </div>
   );
 }
