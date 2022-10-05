@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 20px;
   text-align: center;
-  background: #f4f4f4;
+  background: #c6cac8;
 }
 .money-img {
   width: 200px;
@@ -20,5 +20,5 @@ body {
   font-weight: bold;
 }
 .container{
-  border: 2px dashed rgb(157, 101, 185) ;
+  border: 2px dashed rgb(31, 109, 28) ;
 }

@@ -2,13 +2,15 @@ import "./App.css";
 import CurrencyComponent from "./Components/CurrencyComponent";
 import money from "./img/money.png";
 import { useEffect, useState } from "react";
+
 function App() {
+  const [allCurrency, setAllCurrency] = useState([]);
+
   const url = `https://api.exchangerate-api.com/v4/latest/USD`;
-  const [chooseCur,setChooseCur] = useState([])
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setAllCurrency([...Object.keys(data.rates)]));
   });
 
   return (
@@ -16,9 +18,9 @@ function App() {
       <img src={money} alt="money" className="money-img" />
       <h1 style={{ color: "chocolate" }}>Currency Converter</h1>
       <div className="container">
-        <CurrencyComponent />
+        <CurrencyComponent Allcurrency={allCurrency} />
         <div className="equal">||</div>
-        <CurrencyComponent />
+        <CurrencyComponent Allcurrency={allCurrency} />
       </div>
     </div>
   );
