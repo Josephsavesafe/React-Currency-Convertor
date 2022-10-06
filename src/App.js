@@ -11,7 +11,7 @@ function App() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllCurrency([...Object.keys(data.rates)]));
-  });
+  }, []);
 
   return (
     <div>

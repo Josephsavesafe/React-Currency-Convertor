@@ -4,10 +4,8 @@ const CurrencyComponent = (props) => {
   return (
     <div className="currency">
       <select>
-        {props.Allcurrency.map((cur) => (
-          <option key={cur} value={cur}>
-            {cur}
-          </option>
+        {props.Allcurrency.map((currency) => (
+          <option key={currency}>{currency}</option>
         ))}
       </select>
       <input type="number" />
